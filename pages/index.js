@@ -37,7 +37,7 @@ export default function Home({cards}) {
               />
           </Flex>
           <Flex alignItems="center" flexDirection="column" height="100%">
-            <Text maxWidth="1000px" align="center" px={4} pt={4}>Welcome to <span style={{fontWeight: 700}}>Epta</span>! The name of the website is derived from the Greek word "<span style={{fontWeight: 700}}>ἑπτά</span>" which translates to "seven" in English. The significance of that number being the name of the website is because it represents us, a group of seven friends based out of Toronto, Ontario, Canada who each bring their unique sets of skills and knowledge to the workforce. Feel free to scroll through the cards below and view any profiles that grab your attention!</Text>
+            <Text maxWidth="1000px" align="center" px={4} pt={4}>Welcome to <span style={{fontWeight: 700}}>Epta</span>! The name of the website is derived from the Greek word &quot;<span style={{fontWeight: 700}}>ἑπτά</span>&quot; which translates to &quot;seven&quot; in English. The significance of that number being the name of the website is because it represents us, a group of seven friends based out of Toronto, Ontario, Canada who each bring their unique sets of skills and knowledge to the workforce. Feel free to scroll through the cards below and view any profiles that grab your attention!</Text>
             <Flex
               alignItems="center"
               justifyContent="center"
