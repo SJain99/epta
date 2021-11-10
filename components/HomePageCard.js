@@ -6,12 +6,14 @@ const HomePageCard = ({card, buttonColour}) => {
     return (
         <Box
             maxWidth="300px"
+            minHeight="550px"
             maxHeight="550px"
             borderRadius={8}
             backgroundColor={colorMode === "light" ? "white" : "gray.800"}
             boxShadow="xl"
             width="100%"
             height="100%"
+            p={1}
         >
             <Image
                 src={"https:" + card.fields.profilePicture.fields.file.url}
@@ -19,28 +21,28 @@ const HomePageCard = ({card, buttonColour}) => {
                 borderRadius={8}
             />
             <Text
-                mt={2}
-                ml={4}
+                mt={4}
+                ml={3}
                 fontWeight="bold"
                 fontSize="3xl"
             >
                 {card.fields.fullName}
             </Text>
             <Text
-                ml={4}
+                ml={3}
                 mt={-1}
                 fontSize="md"
             >
                 {card.fields.jobTitle}
             </Text>
             <Text
-                ml={4}
+                ml={3}
                 mt={2}
                 fontSize="md"
             >
                 <span style={{fontWeight: 700}}>Current Status: </span>{card.fields.currentStatus}
             </Text>
-            <Button colorScheme={buttonColour} variant="solid" ml={4} mt={2} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
+            <Button colorScheme={buttonColour} variant="solid" ml={3} mt={4} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
         </Box>
     );
 }
