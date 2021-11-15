@@ -1,8 +1,10 @@
 import { ViewIcon } from "@chakra-ui/icons";
 import { Box, useColorMode, Image, Text, Button } from "@chakra-ui/react"
+import { useRouter } from "next/dist/client/router";
 
-const HomePageCard = ({card, buttonColour}) => {
+const HomePageCard = ({profile, buttonColour}) => {
     const { colorMode } = useColorMode();
+    const router = useRouter();
     return (
         <Box
             maxWidth="300px"
@@ -16,7 +18,7 @@ const HomePageCard = ({card, buttonColour}) => {
             p={1}
         >
             <Image
-                src={"https:" + card.fields.profilePicture.fields.file.url}
+                src={"https:" + profile.fields.profilePicture.fields.file.url}
                 width="100%"
                 borderRadius={8}
             />
@@ -26,23 +28,23 @@ const HomePageCard = ({card, buttonColour}) => {
                 fontWeight="bold"
                 fontSize="3xl"
             >
-                {card.fields.fullName}
+                {profile.fields.fullName}
             </Text>
             <Text
                 ml={3}
                 mt={-1}
                 fontSize="md"
             >
-                {card.fields.jobTitle}
+                {profile.fields.jobTitle}
             </Text>
             <Text
                 ml={3}
                 mt={2}
                 fontSize="md"
             >
-                <span style={{fontWeight: 700}}>Current Status: </span>{card.fields.currentStatus}
+                <span style={{fontWeight: 700}}>Current Status: </span>{profile.fields.currentStatus}
             </Text>
-            <Button colorScheme={buttonColour} variant="solid" ml={3} mt={4} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
+            <Button onClick={() => router.push('/profiles/' + profile.fields.slug)} colorScheme={buttonColour} variant="solid" ml={3} mt={4} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
         </Box>
     );
 }

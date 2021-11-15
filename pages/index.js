@@ -6,9 +6,9 @@ import HomePageCard from '../components/HomePageCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-export default function Home({cards}) {
+export default function Home({profiles}) {
   const [ profileIndex, setProfileIndex ] = useState(0);
-  const buttonColours = ["red", "green"];
+  const buttonColours = ["green", "teal", "blue", "cyan", "purple", "pink", "gray"];
   return (
     <Flex
           justifyContent="space-between"
@@ -22,9 +22,9 @@ export default function Home({cards}) {
               height="100%"
               my={20}
             >
-              <IconButton icon={<ArrowBackIcon />} fontSize="18px" marginRight="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == 0 ? setProfileIndex(cards.length-1) : setProfileIndex(profileIndex - 1)} />
-              <HomePageCard card={cards[profileIndex]} buttonColour={buttonColours[profileIndex]} />
-              <IconButton icon={<ArrowForwardIcon />} fontSize="18px" marginLeft="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == cards.length-1 ? setProfileIndex(0) : setProfileIndex(profileIndex + 1)} />
+              <IconButton icon={<ArrowBackIcon />} fontSize="18px" marginRight="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == 0 ? setProfileIndex(profiles.length-1) : setProfileIndex(profileIndex - 1)} />
+              <HomePageCard profile={profiles[profileIndex]} buttonColour={buttonColours[profileIndex]} />
+              <IconButton icon={<ArrowForwardIcon />} fontSize="18px" marginLeft="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == profiles.length-1 ? setProfileIndex(0) : setProfileIndex(profileIndex + 1)} />
             </Flex>
             <Footer />
           </Flex>
@@ -37,11 +37,11 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   });
 
-  const res = await client.getEntries({ content_type: 'homePageCard' });
+  const res = await client.getEntries({ content_type: 'profile' });
 
   return {
     props: {
-      cards: res.items
+      profiles: res.items
     }
   }
 }
