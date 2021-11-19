@@ -6,6 +6,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import JobCard from "../../components/JobCard";
 import ProjectCard from "../../components/ProjectCard";
+import EducationCard from "../../components/EducationCard";
 
 const Profile = ({profile}) => {
     const jobOptions = {
@@ -13,6 +14,14 @@ const Profile = ({profile}) => {
           [BLOCKS.EMBEDDED_ENTRY]: (node) => {
             const { title, company, duration, description } = node.data.target.fields;
             return <JobCard title={title} company={company} duration={duration} description={description} />
+          }
+        }
+      };
+      const educationOptions = {
+        renderNode: {
+          [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+            const { major, school, timespan } = node.data.target.fields;
+            return <EducationCard major={major} school={school} timespan={timespan} />
           }
         }
       };
@@ -54,15 +63,17 @@ const Profile = ({profile}) => {
             justifyContent="center"
             flexDirection="column"
             height="100%"
-            mt={4}
+            my={4}
           >
               <Image src={"https:" + profile.fields.profilePicture.fields.file.url} borderRadius="full" width="200px" mb={4}/>
               <Heading textAlign="center" px={4} fontFamily="Prata" fontSize="5xl" mb={4}>{profile.fields.fullName}</Heading>
               <Text align="center" maxWidth="1000px" px={4}>{profile.fields.aboutMe}</Text>
               <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Work Experience</Text>
               {documentToReactComponents(profile.fields.workExperience, jobOptions)}
+              <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Education</Text>
+              {documentToReactComponents(profile.fields.education, educationOptions)}
               <Text textAlign="center" px={4} mt={12} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Skills</Text>
-              <Flex maxWidth="1000px" width="100%" flexDirection="column" px={4}>
+              <Flex maxWidth="1000px" flexDirection="column" width="100%" px={4}>
                 {documentToReactComponents(profile.fields.skills, skillOptions)}
               </Flex>
               {profile.fields.projects != undefined && 
@@ -102,7 +113,8 @@ export async function getStaticPaths() {
   
     return {
       props: {
-        profile: res.items[0]
+        profile: res.items[0],
+        revalidate: 1
       }
     }
   }
