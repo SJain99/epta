@@ -10,7 +10,7 @@ const Header = () => {
             backgroundColor={colorMode === "light" ? "white" : "gray.800"}
             width="100%"
           >
-              <Link href="/" fontSize="3xl" fontWeight="bold" p={4} fontFamily="Prata">
+              <Link href="/" fontSize="3xl" fontWeight="bold" p={3} fontFamily="Prata">
               Epta
               </Link>
               <IconButton
