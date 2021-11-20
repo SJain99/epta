@@ -104,7 +104,7 @@ export async function getStaticPaths() {
   
     return {
         paths,
-        fallback: 'blocking'
+        fallback: false
     }
   }
 
@@ -113,9 +113,9 @@ export async function getStaticPaths() {
   
     return {
       props: {
-        profile: res.items[0],
-        revalidate: 60
-      }
+        profile: res.items[0]
+      },
+      revalidate: 1,
     }
   }
 
