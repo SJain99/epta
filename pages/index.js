@@ -41,8 +41,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      profiles: res.items,
-      revalidate: 60
-    }
+      profiles: res.items
+    },
+    revalidate: 1,
   }
 }
