@@ -13,9 +13,10 @@ import WrittenPDFCard from "../../components/WrittenPDFCard";
 import ImageCard from "../../components/ImageCard";
 import VideoCard from "../../components/VideoCard";
 import RealEstatePDFCard from "../../components/RealEstatePDFCard";
+import Fallback from "../../components/Fallback";
 
 const Profile = ({profile}) => {
-    if(!profile) return <div>Temp Loading Screen</div>
+    if (!profile) return <Fallback />
     const jobOptions = {
         renderNode: {
           [BLOCKS.EMBEDDED_ENTRY]: (node) => {
