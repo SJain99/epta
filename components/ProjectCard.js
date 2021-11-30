@@ -14,7 +14,7 @@ const ProjectCard = ({name, status, description}) => {
               </ListItem>
           ),
           [INLINES.HYPERLINK]: (node, children) => (
-              <Link href={children} textDecoration="underline">{children}</Link>
+              <Link rel="nofollow" href={children} textDecoration="underline">{children}</Link>
           )
         }
       };
