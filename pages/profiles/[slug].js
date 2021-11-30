@@ -72,7 +72,7 @@ const Profile = ({profile}) => {
             height="100%"
             my={4}
           >
-              <Image src={"https:" + profile.fields.profilePicture.fields.file.url} borderRadius="full" width="200px" mb={4}/>
+              <Image alt={profile.fields.fullName} src={"https:" + profile.fields.profilePicture.fields.file.url} borderRadius="full" width="200px" mb={4}/>
               <Heading textAlign="center" px={4} fontFamily="Prata" fontSize="5xl" mb={4}>{profile.fields.fullName}</Heading>
               <Text align="center" maxWidth="1000px" px={4}>{profile.fields.aboutMe}</Text>
               <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Work Experience</Text>
