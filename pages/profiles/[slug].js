@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import { Flex, Link, Heading, Image, Text, Box, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Flex, Link, Heading, Image, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -7,8 +7,15 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import JobCard from "../../components/JobCard";
 import ProjectCard from "../../components/ProjectCard";
 import EducationCard from "../../components/EducationCard";
+import DesignPDFCard from "../../components/DesignPDFCard";
+import TechnicalPDFCard from "../../components/TechnicalPDFCard";
+import WrittenPDFCard from "../../components/WrittenPDFCard";
+import ImageCard from "../../components/ImageCard";
+import VideoCard from "../../components/VideoCard";
+import RealEstatePDFCard from "../../components/RealEstatePDFCard";
 
 const Profile = ({profile}) => {
+    if(!profile) return <div>Temp Loading Screen</div>
     const jobOptions = {
         renderNode: {
           [BLOCKS.EMBEDDED_ENTRY]: (node) => {
@@ -77,12 +84,50 @@ const Profile = ({profile}) => {
                 {documentToReactComponents(profile.fields.skills, skillOptions)}
               </Flex>
               {profile.fields.projects != undefined && 
-                <Text textAlign="center" px={4} mt={12} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Projects</Text>
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Projects</Text>
               }
               {profile.fields.projects != undefined && 
                 documentToReactComponents(profile.fields.projects, projectOptions)
               }
-          </Flex>
+              {profile.fields.designProjects != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Design Projects</Text>
+              }
+              {profile.fields.designProjects != undefined &&
+                <DesignPDFCard profile={profile} />
+              }
+              {profile.fields.technicalProjects != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Technical Projects</Text>
+              }
+              {profile.fields.technicalProjects != undefined &&
+                <TechnicalPDFCard profile={profile} />
+              }
+              {profile.fields.imageCreations != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Image Creations</Text>
+              }
+              {profile.fields.imageCreations != undefined &&
+                <ImageCard profile={profile} />
+              }
+              {profile.fields.videoCreations != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Video Creations</Text>
+              }
+              {profile.fields.videoCreations != undefined &&
+                <VideoCard profile={profile} />
+              }
+              {profile.fields.writtenWork != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Written Work</Text>
+              }
+              {profile.fields.writtenWork != undefined &&
+                <WrittenPDFCard profile={profile} />
+              }
+              {profile.fields.realEstateListings != undefined && 
+                <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Real Estate Listings</Text>
+              }
+              {profile.fields.realEstateListings != undefined &&
+                <RealEstatePDFCard profile={profile} />
+              }
+              <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Contact Me</Text>
+              <Text align="center" maxWidth="1000px" px={4} mb={4}>If you would like to get in touch with me about my current endeavours, have an opportunity to present to me, or even just have something cool/interesting to send, feel free to{" "}<Link color="purple" href={"mailto:" + profile.fields.email} fontWeight="bold">send me an email!</Link> I will try and respond back to you as soon as possible.</Text>
+            </Flex>
           <Footer />
         </Flex>
     )
@@ -104,7 +149,7 @@ export async function getStaticPaths() {
   
     return {
         paths,
-        fallback: false
+        fallback: true
     }
   }
 
