@@ -1,6 +1,7 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { pageview } from "../utils/analytics";
 
 export const theme = extendTheme({
   styles: {
@@ -28,7 +29,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      ga.pageview(url)
+      pageview(url)
     }
     router.events.on('routeChangeComplete', handleRouteChange)
 
