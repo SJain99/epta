@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Flex, Link, Heading, Text } from '@chakra-ui/react';
+import Head from "next/head"
 
 const about = () => {
     return (
@@ -9,6 +10,18 @@ const about = () => {
           alignItems="center"
           flexDirection="column"
         >
+          <Head>
+            <title>About Us | Epta</title>
+            <link rel="canonical" href="https://www.epta.ca/about" />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content="A portfolio website for seven friends based out of Toronto, Ontario, Canada, each with their own skills, knowledge and expertise." />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="About Us | Epta" />
+            <meta property="og:description" content="A portfolio website for seven friends based out of Toronto, Ontario, Canada, each with their own skills, knowledge and expertise." />
+            <meta property="og:url" content="https://www.epta.ca/about" />
+            <meta property="og:site_name" content="Epta" />
+          </Head>
           <Header />
           <Flex maxWidth="1000px" p={4} width="100%">
             <Link href="/">&#8592; Go to Home Page</Link>

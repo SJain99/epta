@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { Flex, Link, Heading, Image, Text, UnorderedList, ListItem } from "@chakra-ui/react";
+import Head from "next/head"
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -62,6 +63,18 @@ const Profile = ({profile}) => {
           alignItems="center"
           flexDirection="column"
         >
+          <Head>
+            <title>{profile.fields.fullName} | Epta</title>
+            <link rel="canonical" href={"https://www.epta.ca/profiles/" + profile.fields.slug} />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content={profile.fields.summary} />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content={profile.fields.fullName + " | Epta"} />
+            <meta property="og:description" content={profile.fields.summary} />
+            <meta property="og:url" content={"https://www.epta.ca/profiles/" + profile.fields.slug} />
+            <meta property="og:site_name" content="Epta" />
+          </Head>
           <Header />
           <Flex maxWidth="1000px" p={4} width="100%">
             <Link href="/">&#8592; Go to Home Page</Link>

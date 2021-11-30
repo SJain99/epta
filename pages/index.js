@@ -5,6 +5,7 @@ import { useState } from 'react';
 import HomePageCard from '../components/HomePageCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from "next/head";
 
 export default function Home({profiles}) {
   const [ profileIndex, setProfileIndex ] = useState(0);
@@ -15,6 +16,18 @@ export default function Home({profiles}) {
           alignItems="center"
           flexDirection="column"
           >
+          <Head>
+            <title>Epta - A Friend&apos;s Portfolio Site</title>
+            <link rel="canonical" href="https://www.epta.ca" />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content="A portfolio website for seven friends based out of Toronto, Ontario, Canada, each with their own skills, knowledge and expertise." />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="Epta - A Friend's Portfolio Site" />
+            <meta property="og:description" content="A portfolio website for seven friends based out of Toronto, Ontario, Canada, each with their own skills, knowledge and expertise." />
+            <meta property="og:url" content="https://www.epta.ca" />
+            <meta property="og:site_name" content="Epta" />
+          </Head>
           <Header />
             <Flex
               alignItems="center"
