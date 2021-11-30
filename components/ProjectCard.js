@@ -21,7 +21,7 @@ const ProjectCard = ({name, status, description}) => {
     return (
         <Flex maxWidth="1000px" width="100%" flexDirection="column" mb={4} px={4}>
             <Text fontSize="2xl" fontWeight="bold">{name}</Text>
-            <Text>Status: <Badge colorScheme="purple">{status}</Badge></Text>
+            {status === "Complete" ? <Text>Status: <Badge colorScheme="green">{status}</Badge></Text> : <Text>Status: <Badge colorScheme="yellow">{status}</Badge></Text>}
             {documentToReactComponents(description, options)}
         </Flex>
     )
