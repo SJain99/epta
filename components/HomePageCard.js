@@ -19,6 +19,7 @@ const HomePageCard = ({profile, buttonColour}) => {
         >
             <Image
                 src={"https:" + profile.fields.profilePicture.fields.file.url}
+                alt={profile.fields.fullName}
                 width="100%"
                 borderRadius={8}
             />
