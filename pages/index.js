@@ -17,9 +17,9 @@ export default function Home({profiles}) {
           flexDirection="column"
           >
           <Head>
-            <title>Epta - A Friend's Portfolio Site</title>
+            <title>Epta - A Friend&apos;s Portfolio Site</title>
             <link rel="canonical" href="https://www.epta.ca" />
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta name="description" content="A portfolio website for seven friends based out of Toronto, Ontario, Canada, each with their own skills, knowledge and expertise." />
             <meta property="og:type" content="article" />

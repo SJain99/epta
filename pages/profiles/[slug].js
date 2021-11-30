@@ -66,7 +66,7 @@ const Profile = ({profile}) => {
           <Head>
             <title>{profile.fields.fullName} | Epta</title>
             <link rel="canonical" href={"https://www.epta.ca/profiles/" + profile.fields.slug} />
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta name="description" content={profile.fields.summary} />
             <meta property="og:type" content="article" />
