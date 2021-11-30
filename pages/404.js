@@ -12,7 +12,7 @@ const NotFound = () => {
             <Header />
             <Flex maxWidth="1000px" justifyContent="center" alignItems="center" mx="auto" my={20} px={4} flexDirection="column">
                 <Heading fontFamily="Prata" mb={4} px={4}>Oops! That page could not be found.</Heading>
-                <Text>Somehow, you stumbled upon a page that has no content on it! Let's correct that, shall we? {""}<Link href="/" color="purple" fontWeight="bold">Go back to homepage</Link></Text>
+                <Text>Somehow, you stumbled upon a page that has no content on it! Let&apos;s correct that, shall we? {""}<Link href="/" color="purple" fontWeight="bold">Go back to homepage</Link></Text>
             </Flex>
             <Footer />
         </Flex>
