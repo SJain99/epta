@@ -1,14 +1,12 @@
 import { Flex, Wrap, Box } from '@chakra-ui/react'
 import { createClient } from 'contentful';
-import { useState } from 'react';
 import HomePageCard from '../components/HomePageCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Head from "next/head";
 
 export default function Home({profiles}) {
-  const [ profileIndex, setProfileIndex ] = useState(0);
-  const buttonColours = ["green", "teal", "blue", "cyan", "purple", "pink", "gray"];
+  const buttonColours = ["green", "teal", "blue", "cyan", "purple", "pink"];
   return (
     <Flex
           justifyContent="space-between"
@@ -31,10 +29,10 @@ export default function Home({profiles}) {
             <Wrap
               maxWidth="1000px"
               justify="center"
-              my={20}
+              my={8}
             >
               {profiles.map(profile => (
-                <Box key={profile.fields.fullName} p={2}>
+                <Box key={profile.fields.fullName} p={1}>
                   <HomePageCard profile={profile} buttonColour={buttonColours[getRandomIntInclusive(0, buttonColours.length - 1)]} />
                 </Box>
               ))}
