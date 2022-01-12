@@ -1,5 +1,4 @@
-import { Flex, IconButton } from '@chakra-ui/react'
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { Flex, Wrap, Box } from '@chakra-ui/react'
 import { createClient } from 'contentful';
 import { useState } from 'react';
 import HomePageCard from '../components/HomePageCard';
@@ -29,19 +28,26 @@ export default function Home({profiles}) {
             <meta property="og:site_name" content="Epta" />
           </Head>
           <Header />
-            <Flex
-              alignItems="center"
-              justifyContent="center"
-              height="100%"
+            <Wrap
+              maxWidth="1000px"
+              justify="center"
               my={20}
             >
-              <IconButton icon={<ArrowBackIcon />} fontSize="18px" marginRight="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == 0 ? setProfileIndex(profiles.length-1) : setProfileIndex(profileIndex - 1)} />
-              <HomePageCard profile={profiles[profileIndex]} buttonColour={buttonColours[profileIndex]} />
-              <IconButton icon={<ArrowForwardIcon />} fontSize="18px" marginLeft="8px" variant="solid" borderRadius="full" onClick={() => profileIndex == profiles.length-1 ? setProfileIndex(0) : setProfileIndex(profileIndex + 1)} />
-            </Flex>
+              {profiles.map(profile => (
+                <Box key={profile.fields.fullName} p={2}>
+                  <HomePageCard profile={profile} buttonColour={buttonColours[getRandomIntInclusive(0, buttonColours.length - 1)]} />
+                </Box>
+              ))}
+            </Wrap>
             <Footer />
           </Flex>
   )
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export async function getStaticProps() {
