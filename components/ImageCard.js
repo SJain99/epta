@@ -14,7 +14,7 @@ const ImageCard = ({profile}) => {
             >
             <IconButton icon={<ArrowBackIcon />} fontSize="18px" marginRight="8px" variant="solid" borderRadius="full" onClick={() => index == 0 ? setIndex(profile.fields.imageCreations.length-1) : setIndex(index - 1)} />
             <Flex flexDirection="column">
-                <Image src={"https:" + profile.fields.imageCreations[index].fields.file.url} width={profile.fields.imageCreations[index].fields.file.details.image.width / 3} height={profile.fields.imageCreations[index].fields.file.details.image.height / 3} alt={profile.fields.imageCreations[index].fields.title ? profile.fields.imageCreations[index].fields.title : profile.fields.fullName + " image creation"} />
+                <Image src={"https:" + profile.fields.imageCreations[index].fields.file.url} width={profile.fields.imageCreations[index].fields.file.details.image.width / 2.5} height={profile.fields.imageCreations[index].fields.file.details.image.height / 2.5} alt={profile.fields.imageCreations[index].fields.title ? profile.fields.imageCreations[index].fields.title : profile.fields.fullName + " image creation"} />
                 <Text fontSize="2xl" fontWeight="bold">{profile.fields.imageCreations[index].fields.title}</Text>
                 <Text>{profile.fields.imageCreations[index].fields.description}</Text>
             </Flex>
