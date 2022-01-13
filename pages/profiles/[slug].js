@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import { Flex, Link, Heading, Image, Text, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Flex, Link, Heading, Image, Text, UnorderedList, ListItem, IconButton, HStack } from "@chakra-ui/react";
 import Head from "next/head"
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -15,6 +15,8 @@ import ImageCard from "../../components/ImageCard";
 import VideoCard from "../../components/VideoCard";
 import RealEstatePDFCard from "../../components/RealEstatePDFCard";
 import Fallback from "../../components/Fallback";
+import { FaDeviantart, FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { EmailIcon } from "@chakra-ui/icons";
 
 const Profile = ({profile}) => {
     if (!profile) return <Fallback />
@@ -88,6 +90,36 @@ const Profile = ({profile}) => {
           >
               <Image alt={profile.fields.fullName} src={"https:" + profile.fields.profilePicture.fields.file.url} borderRadius="full" width="200px" mb={4}/>
               <Heading textAlign="center" px={4} fontFamily="Prata" fontSize="5xl" mb={4}>{profile.fields.fullName}</Heading>
+              <HStack spacing="8px" mb={6}>
+                <Link href={"mailto:" + profile.fields.email}>
+                  <IconButton icon={<EmailIcon />} colorScheme="purple" />
+                </Link>
+                {profile.fields.instagram != undefined && 
+                  <Link href={profile.fields.instagram}>
+                    <IconButton icon={<FaInstagram />} colorScheme="pink" />
+                  </Link>
+                }
+                {profile.fields.youTube != undefined && 
+                  <Link href={profile.fields.youTube}>
+                    <IconButton icon={<FaYoutube />} colorScheme="red" />
+                  </Link>
+                }
+                {profile.fields.linkedIn != undefined && 
+                  <Link href={profile.fields.linkedIn} isExternal>
+                    <IconButton icon={<FaLinkedinIn />} colorScheme="blue" />
+                  </Link>
+                }
+                {profile.fields.github != undefined && 
+                  <Link href={profile.fields.github} isExternal>
+                    <IconButton icon={<FaGithub />} />
+                  </Link>
+                }
+                {profile.fields.deviantArt != undefined && 
+                  <Link href={profile.fields.deviantArt} isExternal>
+                    <IconButton icon={<FaDeviantart />} colorScheme="green" />
+                  </Link>
+                }
+              </HStack>
               <Text align="center" maxWidth="1000px" px={4}>{profile.fields.aboutMe}</Text>
               <Text textAlign="center" px={4} mt={12} mb={4} fontFamily="Prata" fontWeight="bold" fontSize="3xl">Work Experience</Text>
               {documentToReactComponents(profile.fields.workExperience, jobOptions)}
