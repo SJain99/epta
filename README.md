@@ -1,34 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Epta</h1>
 
-## Getting Started
+<p>Epta is a new take on the traditional porfolio website, conceptualized by a tight-knit group of friends. The idea behind it was to have one website that houses all of our portfolios, instead of having one website for each person, since each of us possesses our own unique set of skills and expertise that we can bring to any given opportunity. The name of the website comes from the greek word ἑπτά, which translates to "seven" in English, and represents us, a group of seven friends based out of Toronto, Ontario, Canada.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  Myself, and my friends all encourage you to visit <a href="https://www.epta.ca">our website</a> and browse through any profiles that peak your interest!</p>
+  
+  <h1>Tools Used</h1>
+  <ul>
+  <li>Next.js</li>
+  <li>React.js</li>
+  <li>Chakra UI</li>
+  <li>Contentful (Content Management System)</li>
+  </ul>
