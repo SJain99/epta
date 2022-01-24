@@ -29,7 +29,8 @@ export default function Home({profiles}) {
             <Wrap
               maxWidth="1000px"
               justify="center"
-              my={8}
+              mt={4}
+              mb={8}
             >
               {profiles.map(profile => (
                 <Box key={profile.fields.fullName} p={1}>
