@@ -7,15 +7,15 @@ const HomePageCard = ({profile, buttonColour}) => {
     const router = useRouter();
     return (
         <Box
-            maxWidth="300px"
-            minHeight="550px"
-            maxHeight="550px"
+            maxWidth="488px"
             borderRadius={8}
             backgroundColor={colorMode === "light" ? "white" : "gray.800"}
             boxShadow="xl"
             width="100%"
             height="100%"
-            p={1}
+            px={1}
+            pt={1}
+            pb={4}
         >
             <Image
                 src={"https:" + profile.fields.profilePicture.fields.file.url}
@@ -24,28 +24,28 @@ const HomePageCard = ({profile, buttonColour}) => {
                 borderRadius={8}
             />
             <Text
-                mt={4}
-                ml={3}
+                mt={3}
+                mx={2}
                 fontWeight="bold"
-                fontSize="3xl"
+                fontSize="2xl"
             >
                 {profile.fields.fullName}
             </Text>
             <Text
-                ml={3}
+                ml={2}
                 mt={-1}
                 fontSize="md"
             >
                 {profile.fields.jobTitle}
             </Text>
             <Text
-                ml={3}
+                ml={2}
                 mt={2}
                 fontSize="md"
             >
                 <span style={{fontWeight: 700}}>Current Status: </span>{profile.fields.currentStatus}
             </Text>
-            <Button onClick={() => router.push('/profiles/' + profile.fields.slug)} colorScheme={buttonColour} variant="solid" ml={3} mt={4} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
+            <Button width="96%" onClick={() => router.push('/profiles/' + profile.fields.slug)} colorScheme={buttonColour} variant="solid" ml={2} mt={4} leftIcon={<ViewIcon />}>Click to view my full profile</Button>
         </Box>
     );
 }
