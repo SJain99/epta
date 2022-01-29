@@ -7,7 +7,7 @@ const HomePageCard = ({profile, buttonColour}) => {
     const router = useRouter();
     return (
         <Box
-            maxWidth="488px"
+            maxWidth="400px"
             borderRadius={8}
             backgroundColor={colorMode === "light" ? "white" : "gray.800"}
             boxShadow="xl"
