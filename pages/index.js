@@ -27,7 +27,7 @@ export default function Home({profiles}) {
           </Head>
           <Header />
             <Wrap
-              maxWidth="1000px"
+              width="100%"
               justify="center"
               mt={4}
               mb={8}
